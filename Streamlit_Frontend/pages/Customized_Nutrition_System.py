@@ -5,12 +5,12 @@ from random import uniform as rnd
 from ImageFinder.ImageFinder import get_images_links as find_image
 from streamlit_echarts import st_echarts
 
-st.set_page_config(page_title="Automatic Diet Recommendation", page_icon="💪",layout="wide")
+st.set_page_config(page_title="Customized Nutrition System", page_icon="CNS",layout="wide")
 
 
 
 nutritions_values=['Calories','FatContent','SaturatedFatContent','CholesterolContent','SodiumContent','CarbohydrateContent','FiberContent','SugarContent','ProteinContent']
-# Streamlit states initialization
+
 if 'person' not in st.session_state:
     st.session_state.generated = False
     st.session_state.recommendations=None
@@ -26,6 +26,7 @@ class Person:
         self.activity=activity
         self.meals_calories_perc=meals_calories_perc
         self.weight_loss=weight_loss
+    
     def calculate_bmi(self,):
         bmi=round(self.weight/((self.height/100)**2),2)
         return bmi
@@ -109,7 +110,7 @@ class Display:
                 st.metric(label=plan,value=f'{round(maintain_calories*weight)} Calories/day',delta=loss,delta_color="inverse")
 
     def display_recommendation(self,person,recommendations):
-        st.header('DIET RECOMMENDATOR')  
+        st.header('NUTRITION SYSTEM')  
         with st.spinner('Generating recommendations...'): 
             meals=person.meals_calories_perc
             st.subheader('Recommended recipes:')
@@ -193,7 +194,7 @@ class Display:
         total_calories_chose=total_nutrition_values['Calories']
         loss_calories_chose=round(person.calories_calculator()*person.weight_loss)
 
-        # Display corresponding graphs
+        # Graphs
         st.markdown(f'<h5 style="text-align: center;font-family:sans-serif;">Total Calories in Recipes vs {st.session_state.weight_loss_option} Calories:</h5>', unsafe_allow_html=True)
         total_calories_graph_options = {
     "xAxis": {
@@ -212,35 +213,10 @@ class Display:
     ],
 }
         st_echarts(options=total_calories_graph_options,height="400px",)
-        st.markdown(f'<h5 style="text-align: center;font-family:sans-serif;">Nutritional Values:</h5>', unsafe_allow_html=True)
-        nutritions_graph_options = {
-    "tooltip": {"trigger": "item"},
-    "legend": {"top": "5%", "left": "center"},
-    "series": [
-        {
-            "name": "Nutritional Values",
-            "type": "pie",
-            "radius": ["40%", "70%"],
-            "avoidLabelOverlap": False,
-            "itemStyle": {
-                "borderRadius": 10,
-                "borderColor": "#fff",
-                "borderWidth": 2,
-            },
-            "label": {"show": False, "position": "center"},
-            "emphasis": {
-                "label": {"show": True, "fontSize": "40", "fontWeight": "bold"}
-            },
-            "labelLine": {"show": False},
-            "data": [{"value":round(total_nutrition_values[total_nutrition_value]),"name":total_nutrition_value} for total_nutrition_value in total_nutrition_values],
-        }
-    ],
-}       
-        st_echarts(options=nutritions_graph_options, height="500px",)
         
 
 display=Display()
-title="<h1 style='text-align: center;'>Automatic Diet Recommendation</h1>"
+title="<h1 style='text-align: center;'>CUSTOMIZED NUTRITION SYSTEM</h1>"
 st.markdown(title, unsafe_allow_html=True)
 with st.form("recommendation_form"):
     st.write("Modify the values and click the Generate button to use")

@@ -1,0 +1,28 @@
+docker-compose up -d --build
+
+
+        st.markdown(f'<h5 style="text-align: center;font-family:sans-serif;">Nutritional Values:</h5>', unsafe_allow_html=True)
+        nutritions_graph_options = {
+    "tooltip": {"trigger": "item"},
+    "legend": {"top": "5%", "left": "center"},
+    "series": [
+        {
+            "name": "Nutritional Values",
+            "type": "pie",
+            "radius": ["40%", "70%"],
+            "avoidLabelOverlap": False,
+            "itemStyle": {
+                "borderRadius": 10,
+                "borderColor": "#fff",
+                "borderWidth": 2,
+            },
+            "label": {"show": False, "position": "center"},
+            "emphasis": {
+                "label": {"show": True, "fontSize": "40", "fontWeight": "bold"}
+            },
+            "labelLine": {"show": False},
+            "data": [{"value":round(total_nutrition_values[total_nutrition_value]),"name":total_nutrition_value} for total_nutrition_value in total_nutrition_values],
+        }
+    ],
+}       
+        st_echarts(options=nutritions_graph_options, height="500px",)

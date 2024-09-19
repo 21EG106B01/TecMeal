@@ -62,4 +62,3 @@ def output_recommended_recipes(dataframe):
     else:
         output=None
     return output
-
