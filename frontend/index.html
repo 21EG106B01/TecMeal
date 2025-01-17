@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customized Nutrition Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h2>Generate Your Diet Plan</h2>
+            <form id="nutritionForm">
+                <div class="input-group">
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" name="age" placeholder="Enter your age" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="height">Height (cm):</label>
+                    <input type="number" id="height" name="height" placeholder="Enter your height" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="weight">Weight (kg):</label>
+                    <input type="number" id="weight" name="weight" placeholder="Enter your weight" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="gender">Gender:</label>
+                    <select id="gender" name="gender" required>
+                        <option value="">Select Gender</option>
+                        <option value="0">Male</option>
+                        <option value="1">Female</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="activity">Activity Level:</label>
+                    <select id="activity" name="activity" required>
+                        <option value="">Select Activity Level</option>
+                        <option value="0">Little to no activity</option>
+                        <option value="1">Light exercise</option>
+                        <option value="2">Moderate exercise</option>
+                        <option value="3">High activity</option>
+                        <option value="4">Extreme activity</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <div class="slider-container">
+                        <label for="plan">Diet Plan:</label>
+                        <input type="range" min="2" max="4" step="1" value="3" class="slider" id="plan">
+                        <div class="ticks">
+                            <span>Gain Weight</span>
+                            <span>Maintain Weight</span>
+                            <span>Lose Weight</span>
+                        </div>
+                    </div>
+                </div>
+    
+                <button type="button" id="generateButton" href="/dietpage">Generate Plan</button>
+            </form>
+        </div>
+
+        <!--
+        <div id="mealBoxes" class="hidden meal-container">
+            <div class="meal-box">
+                <h3>Breakfast</h3>
+                <p id="breakfastContent">Your breakfast details will appear here.</p>
+            </div>
+            <div class="meal-box">
+                <h3>Lunch</h3>
+                <p id="lunchContent">Your lunch details will appear here.</p>
+            </div>
+            <div class="meal-box">
+                <h3>Dinner</h3>
+                <p id="dinnerContent">Your dinner details will appear here.</p>
+            </div>
+        </div>
+        -->
+    </div>
+    
+    <script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Customized Nutrition Form</title>
+	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="dietpage.css">
+</head>
+
+<body>
+	<div class="container">
+		<h2>Generate Your Diet Plan</h2>
+
+		<div id="mealBoxes" class="meal-container">
+			<div class="meal-box">
+				<h4>Breakfast</h4>
+				<h3 id="breakfastContent">Breakfast Name</h3>
+				<div class="recipe-info hidden">
+					<ul class="ingredients">
+						<h4>Ingredients:</h4>
+					</ul>
+					<p class="totaltime">Prep Time:<br>00h 00m</p>
+					<button id="breakfastReroll">R</button>
+				</div>
+			</div>
+			<div class="meal-box">
+				<h4>Lunch</h4>
+				<h3 id="lunchContent">Lunch Name</h3>
+				<div class="recipe-info hidden">
+					<ul class="ingredients">
+						<h4>Ingredients:</h4>
+					</ul>
+					<p class="totaltime">Prep Time:<br>00h 00m</p>
+					<button id="lunchReroll">R</button>
+				</div>
+			</div>
+			<div class="meal-box">
+				<h4>Dinner</h4>
+				<h3 id="dinnerContent">Dinner Name</h3>
+				<div class="recipe-info hidden">
+					<ul class="ingredients">
+						<h4>Ingredients:</h4>
+					</ul>
+					<p class="totaltime">Prep Time:<br>00h 00m</p>
+					<button id="dinnerReroll">R</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="dietpage.js"></script>
+</body>
+</html>

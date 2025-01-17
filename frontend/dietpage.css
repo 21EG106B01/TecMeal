@@ -1,0 +1,84 @@
+.meal-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    min-width: 300px;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+}
+
+.meal-box {
+    background: #ffffff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    padding: 20px;
+    text-align: left;
+    height: 100px;
+}
+
+.meal-box:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.hidden {
+    height: 300px;
+}
+
+
+.meal-box h3 {
+    font-size: 1.5rem;
+    color: #3498db;
+    margin: 0;
+    font-weight: bold;
+}
+
+.meal-box h4 {
+    font-size: 1rem;
+    color: #7f8c8d;
+    margin: 0;
+}
+
+.recipe-info {
+    display: flex;
+}
+
+.ingredients {
+    flex: 3;
+    padding-left: 20px;
+    border-right: 2px solid #7f8c8d;
+}
+
+.ingredients h4 {
+    padding-bottom: 5px;
+}
+
+li {
+    list-style: none;
+}
+
+li::before {
+    content: "\25CF";
+    margin-right: 5px;
+    color: #3498db;
+}
+
+.totaltime {
+    padding-left: 20px;
+    flex: 2;
+    text-align: center;
+    margin: auto;
+}
+
+@media (max-width: 768px) {
+    .meal-container {
+        grid-template-columns: 1fr;
+    }
+
+    .meal-box {
+        text-align: center;
+    }
+}
